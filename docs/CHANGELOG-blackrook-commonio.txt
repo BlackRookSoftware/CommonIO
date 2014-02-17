@@ -1,0 +1,56 @@
+Common I/O (C) Black Rook Software, All rights reserved.
+
+Changed in 2.4.4
+================
+
+- Changed: Source indentation style.
+
+
+Changed in 2.4.3
+================
+
+- Changed: Some documentation cleanup.
+
+
+Changed in 2.4.2
+================
+
+- Changed: Applied copyright clause to some files that didn't have it.
+
+Changed in 2.4.1
+================
+
+- Fixed: WAVFile would read less samples than possible due to a typo in
+  readSamples().
+
+Changed in 2.4.0
+================
+
+- Added: SoundFileInfo. Contains sound file information.
+- Added: com.blackrook.io.files.wav package.
+
+Changed in 2.3.0
+================
+
+- Added: com.blackrook.io.files package. Contains useful text file reading
+  classes.
+
+Changed in 2.2.0
+================
+
+- Changed: The refactoring to use the list package from the Commons project 
+  (2.8.0).
+
+Changed in 2.1.1
+================
+
+- Fixed: Error message in ZipFileHandler wasn't clear about the target 
+  directory not being a directory.
+- Fixed: ZipFileHandler would not work properly if the file being 
+  unzipped was in the same directory as the temp directory. Steps have been
+  made to rectify this.
+
+Changed in 2.1.0
+================
+
+- Added: DataVector.getData().

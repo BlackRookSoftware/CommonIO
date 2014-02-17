@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+<!-- ====================================================================== 
+     Black Rook Common I/O Build File    
+     Matt Tropiano                                                                
+     ====================================================================== -->
+<project name="build" default="compile">
+
+	<description>Black Rook Common I/O</description>
+
+	<property file="build.properties" />
+
+	<!-- Dependencies -->
+	<property name="dev.base" value=".." />
+	<property name="S" value="${path.separator}" />
+
+	<!-- Project Libs -->
+	<property name="common.lib" value="${dev.base}/Common/bin" />
+	
+	<!-- Project Info -->
+	<property name="project.archive" value="blackrook-commonio" />
+	<property name="project.javadoc.title" value="Black Rook Common I/O" />
+	<property name="project.classpath" value="${common.lib}" />
+	<property name="project.javadoc.packages" value="
+    	com.blackrook.io,
+    	com.blackrook.io.container,
+    	com.blackrook.io.files,
+    	com.blackrook.io.files.wav,
+		"
+	/>
+	
+	<import file="build-import.xml" />
+
+	<target name="javadoc" depends="init.docs" description="Builds the documentation.">
+        <javadoc access="protected" 
+        	additionalparam="-J-Xmx512m  " author="true" 
+        	classpath="${project.classpath}${path.separator}${bin.dir}" 
+        	doctitle="${project.javadoc.title}" 
+        	sourcepath="${src.dir}" 
+        	packagenames="${project.javadoc.packages}"
+        	destdir="${docs.dir}" 
+    		source="1.6" 
+        	splitindex="true" 
+        	use="true" 
+        	version="true" 
+        	nodeprecated="false" 
+        	nodeprecatedlist="false" 
+        	noindex="false" 
+        	nonavbar="false" 
+        	notree="false"
+    		>
+            <link href="http://blackrooksoftware.com/docs/common/"/>
+            <link href="http://download.oracle.com/javase/6/docs/api/"/>
+        </javadoc>
+    </target>	
+
+</project>
