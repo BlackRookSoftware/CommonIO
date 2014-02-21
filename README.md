@@ -4,7 +4,7 @@ Copyright (c) 2009-2014 Black Rook Software. All rights reserved.
 [http://blackrooksoftware.com/projects.htm?name=commonio](http://blackrooksoftware.com/projects.htm?name=commonio)  
 [https://github.com/BlackRookSoftware/CommonIO](https://github.com/BlackRookSoftware/CommonIO)
 
-### Dependent Libraries
+### Required Libraries
 
 Black Rook Commons 2.8.0+  
 [https://github.com/BlackRookSoftware/Common](https://github.com/BlackRookSoftware/Common)
