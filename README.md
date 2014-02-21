@@ -29,6 +29,6 @@ are made available under the terms of the GNU Lesser Public License v2.1
 which accompanies this distribution, and is available at
 http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
-A copy of the LGPL should have been included in this release (blackrook-license.txt).
+A copy of the LGPL should have been included in this release (LICENSE.txt).
 If it was not, please contact us for a copy, or to notify us of a distribution
 that has not included it. 
