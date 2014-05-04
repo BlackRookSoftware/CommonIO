@@ -26,6 +26,7 @@ import com.blackrook.commons.hash.HashMap;
  * <p>
  * Please note that the logs are written in the system's preferred encoding.
  * @author Matthew Tropiano
+ * @deprecated Seriously, this is terrible. Use com.blackrook.commons.logging.
  */
 public final class Logger
 {

@@ -1,16 +1,19 @@
 Common I/O (C) Black Rook Software, All rights reserved.
 
+Slated for 2.4.5
+================
+
+- Deprecated: Logger. A better one exists in Commons.
+
 Changed in 2.4.4
 ================
 
 - Changed: Source indentation style.
 
-
 Changed in 2.4.3
 ================
 
 - Changed: Some documentation cleanup.
-
 
 Changed in 2.4.2
 ================
