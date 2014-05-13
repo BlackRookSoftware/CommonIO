@@ -1,9 +1,9 @@
 Common I/O (C) Black Rook Software, All rights reserved.
 
-Slated for 2.4.5
+Changed in 2.4.5
 ================
 
-- Deprecated: Logger. A better one exists in Commons.
+- Deprecated: Logger. A better one exists in Commons 2.18.0.
 
 Changed in 2.4.4
 ================
