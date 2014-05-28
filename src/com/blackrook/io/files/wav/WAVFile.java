@@ -38,7 +38,7 @@ public class WAVFile extends RandomAccessFile implements Closeable
 			{0, 255},
 			// signed
 			{-128, 127},
-	},
+		},
 		// 2
 		{
 			// unsigned
