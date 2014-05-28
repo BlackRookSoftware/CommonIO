@@ -45,14 +45,15 @@ public class WAVFile extends RandomAccessFile implements Closeable
 			{0, 65536},
 			// signed
 			{-32768, 32767},
-	}
-};
+		}
+	};
+	
 	/** For readPCM(). */
 	private static final long[] SIGNED_SUBTRAHEND =
 	{
 		256,
 		65536,
-};
+	};
 	
 	/** Sound info. */
 	private SoundFileInfo soundInfo;
