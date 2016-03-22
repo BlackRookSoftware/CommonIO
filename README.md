@@ -1,6 +1,6 @@
 # Black Rook Commons I/O
 
-Copyright (c) 2009-2014 Black Rook Software. All rights reserved.  
+Copyright (c) 2009-2016 Black Rook Software. All rights reserved.  
 [http://blackrooksoftware.com/projects.htm?name=commonio](http://blackrooksoftware.com/projects.htm?name=commonio)  
 [https://github.com/BlackRookSoftware/CommonIO](https://github.com/BlackRookSoftware/CommonIO)
 

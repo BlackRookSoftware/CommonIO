@@ -1,5 +1,10 @@
 Common I/O (C) Black Rook Software, All rights reserved.
 
+Changed in 2.5.0
+================
+
+- Removed: Logger. You had two years to switch!
+
 Changed in 2.4.5
 ================
 
