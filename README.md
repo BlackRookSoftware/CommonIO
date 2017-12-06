@@ -1,6 +1,6 @@
 # Black Rook Commons I/O
 
-Copyright (c) 2009-2016 Black Rook Software. All rights reserved.  
+Copyright (c) 2009-2017 Black Rook Software. All rights reserved.  
 [http://blackrooksoftware.com/projects.htm?name=commonio](http://blackrooksoftware.com/projects.htm?name=commonio)  
 [https://github.com/BlackRookSoftware/CommonIO](https://github.com/BlackRookSoftware/CommonIO)
 
@@ -21,6 +21,24 @@ I/O operations. The javadocs contain basic outlines of each package's contents.
 
 NOTE: There was never a version 1.0 of this project - this used to be a part of
 Commons 1.0, and is called 2.0 just for the sake of consistency.
+
+### Compiling with Ant
+
+To download the dependencies for this project (if you didn't set that up yourself already), type:
+
+	ant dependencies
+
+A *build.properties* file will be created/appended to with the *dev.base* property set.
+	
+To compile this library with Apache Ant, type:
+
+	ant compile
+
+To make a JAR of this library, type:
+
+	ant jar
+
+And it will be placed in the *build/jar* directory.
 
 ### Other
 

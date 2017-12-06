@@ -30,6 +30,19 @@
 	/>
 	
 	<import file="build-import.xml" />
+	<import file="build-dependencies.xml" />
+
+	<target name="dependency.common">
+		<git-export repository="https://github.com/BlackRookSoftware/Common" dest="${dependencies.dir}/Common" />
+		<ant antfile="${dependencies.dir}/Common/build.xml" useNativeBasedir="true" inheritAll="false" target="compile" />
+	</target>
+	<target name="dependency.properties">
+		<echo message="Writing to build.properties...." />
+		<echo message="dev.base=${dependencies.dir}&#10;" file="build.properties" append="true" />
+	</target>
+	
+	<target name="dependencies" depends="init.dependencies, dependency.common, dependency.properties" description="Downloads and compiles the dependencies.">
+	</target>
 
 	<target name="javadoc" depends="init.docs" description="Builds the documentation.">
         <javadoc access="protected" 
@@ -39,7 +52,7 @@
         	sourcepath="${src.dir}" 
         	packagenames="${project.javadoc.packages}"
         	destdir="${docs.dir}" 
-    		source="1.6" 
+    		source="1.8" 
         	splitindex="true" 
         	use="true" 
         	version="true" 
@@ -50,7 +63,7 @@
         	notree="false"
     		>
             <link href="http://blackrooksoftware.com/docs/common/"/>
-            <link href="http://download.oracle.com/javase/6/docs/api/"/>
+            <link href="http://docs.oracle.com/javase/8/docs/api/"/>
         </javadoc>
     </target>	
 
