@@ -882,7 +882,28 @@ public class SuperReader
 			out |= b & 0x7f;
 			if ((b & 0x80) != 0)
 				out <<= 7;
-	} while ((b & 0x80) != 0);
+		} while ((b & 0x80) != 0);
+		return out;
+	}
+
+	/**
+	 * Reads a long from an input stream that is variable-length encoded.
+	 * Reads up to eight bytes. Due to the nature of this value, it is always
+	 * read in a Big-Endian fashion.
+	 * @return a long value from 0x00000000 to 0x7FFFFFFFFFFFFFFF.
+	 * @throws IOException if the next byte to read is not available.
+	 * @since 2.5.1
+	 */
+	public long readVariableLengthLong() throws IOException
+	{
+		long out = 0;
+		byte b = 0;
+		do {
+			b = readByte();
+			out |= b & 0x7f;
+			if ((b & 0x80) != 0)
+				out <<= 7;
+		} while ((b & 0x80) != 0);
 		return out;
 	}
 

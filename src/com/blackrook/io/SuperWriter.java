@@ -295,7 +295,7 @@ public class SuperWriter
 	}
 
 	/**
-	 * Converts an integer from an int to a variable-length byte array.
+	 * Converts an integer from an int to a variable-length string of bytes.
 	 * Makes up to four bytes. Due to the nature of this algorithm, it is always
 	 * written out in a Big-Endian fashion.
 	 * @param i	the int to convert.
@@ -309,12 +309,40 @@ public class SuperWriter
 		int z = i, x = 0;
 		while (z > 0) {z >>= 7; x++;}
 		b = new byte[x];
-		for (z = x-1; z >= 0; z--)
+		for (int n = x-1; n >= 0; n--)
 		{
-			b[z] = (byte)(i & 0x7f);
+			b[n] = (byte)(i & 0x7f);
 			i >>= 7;
-	    	if (z != x-1)
-	    		b[z] |= (byte)(0x80);
+	    	if (n != x-1)
+	    		b[n] |= (byte)(0x80);
+		}
+		out.write(b);
+	}
+
+	/**
+	 * Converts a long from a long to a variable-length string of bytes.
+	 * Makes up to eight bytes. Due to the nature of this algorithm, it is always
+	 * written out in a Big-Endian fashion.
+	 * @param i	the long to convert.
+	 * @throws IllegalArgumentException	if the long value to convert is above 0x7fffffffffffffffL.
+	 * @since 2.5.1
+	 */
+	public void writeVariableLengthLong(long i) throws IOException
+	{
+		if ((i & 0x8000000000000000L) != 0)
+			throw new IllegalArgumentException("Long value too large.");
+		byte[] b;
+		long z = i;
+		int x = 0;
+		while (z > 0) {z >>= 7; x++;}
+		b = new byte[x];
+		
+		for (int n = x-1; n >= 0; n--)
+		{
+			b[n] = (byte)(i & 0x7f);
+			i >>= 7;
+	    	if (n != x-1)
+	    		b[n] |= (byte)(0x80);
 		}
 		out.write(b);
 	}

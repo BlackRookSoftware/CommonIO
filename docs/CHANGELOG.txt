@@ -1,5 +1,10 @@
 Common I/O (C) Black Rook Software, All rights reserved.
 
+Changed in 2.5.1
+================
+
+- Added: SuperWriter.writeVariableLengthLong(), SuperReader.readVariableLengthLong().
+
 Changed in 2.5.0
 ================
 
