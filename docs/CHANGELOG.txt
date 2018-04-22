@@ -1,5 +1,10 @@
 Common I/O (C) Black Rook Software, All rights reserved.
 
+Changed in 2.5.2
+================
+
+- Fixed: SuperWriter.writeVariableLengthInt/Long(). Integers with value 0 wrote zero bytes.
+
 Changed in 2.5.1
 ================
 

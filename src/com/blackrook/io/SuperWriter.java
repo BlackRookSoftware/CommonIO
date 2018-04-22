@@ -304,7 +304,12 @@ public class SuperWriter
 	public void writeVariableLengthInt(int i) throws IOException
 	{
 		if ((i & 0xf0000000) != 0)
-			throw new IllegalArgumentException("Int value too large.");
+			throw new IllegalArgumentException("Int value out of bounds.");
+		if (i == 0)
+		{
+			out.write(0);
+			return;
+		}
 		byte[] b;
 		int z = i, x = 0;
 		while (z > 0) {z >>= 7; x++;}
@@ -331,6 +336,11 @@ public class SuperWriter
 	{
 		if ((i & 0x8000000000000000L) != 0)
 			throw new IllegalArgumentException("Long value too large.");
+		if (i == 0)
+		{
+			out.write(0);
+			return;
+		}
 		byte[] b;
 		long z = i;
 		int x = 0;
