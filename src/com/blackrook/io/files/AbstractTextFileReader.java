@@ -8,14 +8,13 @@
 package com.blackrook.io.files;
 
 import java.io.BufferedReader;
-import java.io.Closeable;
 import java.io.IOException;
 
 /**
  * Abstract reader for text files that has a logic step for eliminating insignificant lines.
  * @author Matthew Tropiano
  */
-public abstract class AbstractTextFileReader implements Closeable
+public abstract class AbstractTextFileReader implements AutoCloseable
 {
 	/** Encapsulated reader. */
 	private BufferedReader reader;
@@ -119,13 +118,6 @@ public abstract class AbstractTextFileReader implements Closeable
 	public void close() throws IOException
 	{
 		reader.close();
-	}
-	
-	@Override
-	protected void finalize() throws Throwable
-	{
-		close();
-		super.finalize();
 	}
 	
 }

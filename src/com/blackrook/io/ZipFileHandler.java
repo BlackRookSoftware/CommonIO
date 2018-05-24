@@ -32,7 +32,7 @@ import com.blackrook.commons.list.List;
  * 
  * @author Matthew Tropiano
  */
-public class ZipFileHandler
+public class ZipFileHandler implements AutoCloseable
 {
 	private static final File WORK_DIR = new File(Common.WORK_DIR);
 	
@@ -370,10 +370,9 @@ public class ZipFileHandler
 	}
 	
 	@Override
-	public void finalize() throws Throwable
+	public void close()
 	{
 		cleanUpAll();
-		super.finalize();
 	}
 	
 	/**
