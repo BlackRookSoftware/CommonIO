@@ -10,7 +10,8 @@ package com.blackrook.io;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.blackrook.commons.Common;
+import com.blackrook.commons.util.BitUtils;
+import com.blackrook.commons.util.BufferUtils;
 
 /**
  * Assists in endian reading and other special serializing stuff.
@@ -111,9 +112,9 @@ public class SuperReader
 	{
 		int out = 0;
 
-		int stop = Math.min(b.length,Common.SIZEOF_INT);
+		int stop = Math.min(b.length,BufferUtils.SIZEOF_INT);
 		for (int x = 0; x < stop; x++)
-			out |= (b[x]&0xFF) << Byte.SIZE*(endianMode ? x : Common.SIZEOF_INT-1-x);
+			out |= (b[x]&0xFF) << Byte.SIZE*(endianMode ? x : BufferUtils.SIZEOF_INT-1-x);
 
 		return out;
 	}
@@ -127,9 +128,9 @@ public class SuperReader
 	{
 		long out = 0;
 
-		int stop = Math.min(b.length,Common.SIZEOF_LONG);
+		int stop = Math.min(b.length,BufferUtils.SIZEOF_LONG);
 		for (int x = 0; x < stop; x++)
-			out |= (long)(b[x]&0xFFL) << (long)(Byte.SIZE*(endianMode ? x : Common.SIZEOF_LONG-1-x));
+			out |= (long)(b[x]&0xFFL) << (long)(Byte.SIZE*(endianMode ? x : BufferUtils.SIZEOF_LONG-1-x));
 
 		return out;
 	}
@@ -153,9 +154,9 @@ public class SuperReader
 	{
 		short out = 0;
 
-		int stop = Math.min(b.length,Common.SIZEOF_SHORT);
+		int stop = Math.min(b.length,BufferUtils.SIZEOF_SHORT);
 		for (int x = 0; x < stop; x++)
-			out |= (b[x]&0xFF) << Byte.SIZE*(endianMode ? x : Common.SIZEOF_SHORT-1-x);
+			out |= (b[x]&0xFF) << Byte.SIZE*(endianMode ? x : BufferUtils.SIZEOF_SHORT-1-x);
 
 		return out;
 	}
@@ -428,7 +429,7 @@ public class SuperReader
 			if (i%Integer.SIZE == 0)
 				currint = readInt();
 			
-			out[i] = Common.bitIsSet(currint,(1<<(i%Integer.SIZE)));
+			out[i] = BitUtils.bitIsSet(currint,(1<<(i%Integer.SIZE)));
 		}
 		return out;
 	}
@@ -439,9 +440,9 @@ public class SuperReader
 	 */
 	public long readLong() throws IOException
 	{
-	    byte[] buffer = new byte[Common.SIZEOF_LONG];
+	    byte[] buffer = new byte[BufferUtils.SIZEOF_LONG];
 	    int buf = byteRead(buffer);
-	    if (buf < Common.SIZEOF_LONG) throw new IOException("Not enough bytes for a long.");
+	    if (buf < BufferUtils.SIZEOF_LONG) throw new IOException("Not enough bytes for a long.");
 	    return bytesToLong(buffer,endianMode);
 	}
 
@@ -546,11 +547,11 @@ public class SuperReader
 	 */
 	public int readInt() throws IOException
 	{
-	    byte[] buffer = new byte[Common.SIZEOF_INT];
+	    byte[] buffer = new byte[BufferUtils.SIZEOF_INT];
 	    int buf = byteRead(buffer);
-	    if (buf < Common.SIZEOF_INT)
+	    if (buf < BufferUtils.SIZEOF_INT)
 	    	throw new EOSException();
-	    else if (buf < Common.SIZEOF_INT) throw new IOException("Not enough bytes for an int.");
+	    else if (buf < BufferUtils.SIZEOF_INT) throw new IOException("Not enough bytes for an int.");
 	    return bytesToInt(buffer,endianMode);
 	}
 
@@ -561,7 +562,7 @@ public class SuperReader
 	public int read24BitInt() throws IOException
 	{
 		byte[] bbu = new byte[3];
-	    byte[] buffer = new byte[Common.SIZEOF_INT];
+	    byte[] buffer = new byte[BufferUtils.SIZEOF_INT];
 	    int buf = byteRead(bbu,3);
 	    if (buf < 3)
 	    	throw new EOSException();
@@ -648,11 +649,11 @@ public class SuperReader
 	 */
 	public float readFloat() throws IOException
 	{
-	    byte[] buffer = new byte[Common.SIZEOF_FLOAT];
+	    byte[] buffer = new byte[BufferUtils.SIZEOF_FLOAT];
 	    int buf = byteRead(buffer);
-	    if (buf < Common.SIZEOF_FLOAT)
+	    if (buf < BufferUtils.SIZEOF_FLOAT)
 	    	throw new EOSException();
-	    else if (buf < Common.SIZEOF_FLOAT) throw new IOException("Not enough bytes for a float.");
+	    else if (buf < BufferUtils.SIZEOF_FLOAT) throw new IOException("Not enough bytes for a float.");
 	    return bytesToFloat(buffer,endianMode);
 	}
 
@@ -695,11 +696,11 @@ public class SuperReader
 	 */
 	public double readDouble() throws IOException
 	{
-	    byte[] buffer = new byte[Common.SIZEOF_DOUBLE];
+	    byte[] buffer = new byte[BufferUtils.SIZEOF_DOUBLE];
 	    int buf = byteRead(buffer);
-	    if (buf < Common.SIZEOF_DOUBLE)
+	    if (buf < BufferUtils.SIZEOF_DOUBLE)
 	    	throw new EOSException();
-	    else if (buf < Common.SIZEOF_DOUBLE) throw new IOException("Not enough bytes for a double.");
+	    else if (buf < BufferUtils.SIZEOF_DOUBLE) throw new IOException("Not enough bytes for a double.");
 	    return Double.longBitsToDouble(bytesToLong(buffer,endianMode));
 	}
 
@@ -742,11 +743,11 @@ public class SuperReader
 	 */
 	public short readShort() throws IOException
 	{
-	    byte[] buffer = new byte[Common.SIZEOF_SHORT];
+	    byte[] buffer = new byte[BufferUtils.SIZEOF_SHORT];
 	    int buf = byteRead(buffer);
-	    if (buf < Common.SIZEOF_SHORT)
+	    if (buf < BufferUtils.SIZEOF_SHORT)
 	    	throw new EOSException();
-	    else if (buf < Common.SIZEOF_SHORT) throw new IOException("Not enough bytes for a short.");
+	    else if (buf < BufferUtils.SIZEOF_SHORT) throw new IOException("Not enough bytes for a short.");
 	    return bytesToShort(buffer,endianMode);
 	}
 

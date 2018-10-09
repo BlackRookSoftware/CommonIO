@@ -12,8 +12,7 @@ import java.io.OutputStream;
 import java.util.Random;
 
 import com.blackrook.commons.math.RMath;
-import com.blackrook.commons.Common;
-
+import com.blackrook.commons.util.BufferUtils;
 
 /**
  * Assists in endian reading and other special serializing stuff.
@@ -75,9 +74,9 @@ public class SuperWriter
 	 */
 	public static byte[] intToBytes(int i, boolean endianMode)
 	{
-		byte[] b = new byte[Common.SIZEOF_INT];
-		for (int x = endianMode ? 0 : Common.SIZEOF_INT-1; endianMode ? (x < Common.SIZEOF_INT) : (x >= 0); x += endianMode ? 1 : -1)
-			b[endianMode ? x : Common.SIZEOF_INT-1 - x] = (byte)((i & (0xFF << Byte.SIZE*x)) >> Byte.SIZE*x);
+		byte[] b = new byte[BufferUtils.SIZEOF_INT];
+		for (int x = endianMode ? 0 : BufferUtils.SIZEOF_INT-1; endianMode ? (x < BufferUtils.SIZEOF_INT) : (x >= 0); x += endianMode ? 1 : -1)
+			b[endianMode ? x : BufferUtils.SIZEOF_INT-1 - x] = (byte)((i & (0xFF << Byte.SIZE*x)) >> Byte.SIZE*x);
 		return b;
 	}
 	
@@ -88,9 +87,9 @@ public class SuperWriter
 	 */
 	public static byte[] longToBytes(long l, boolean endianMode)
 	{
-		byte[] b = new byte[Common.SIZEOF_LONG];
-		for (int x = endianMode ? 0 : Common.SIZEOF_LONG-1; endianMode ? (x < Common.SIZEOF_LONG) : (x >= 0); x += endianMode ? 1 : -1)
-			b[endianMode ? x : Common.SIZEOF_LONG-1 - x] = (byte)((l & (0xFFL << Byte.SIZE*x)) >> Byte.SIZE*x); 
+		byte[] b = new byte[BufferUtils.SIZEOF_LONG];
+		for (int x = endianMode ? 0 : BufferUtils.SIZEOF_LONG-1; endianMode ? (x < BufferUtils.SIZEOF_LONG) : (x >= 0); x += endianMode ? 1 : -1)
+			b[endianMode ? x : BufferUtils.SIZEOF_LONG-1 - x] = (byte)((l & (0xFFL << Byte.SIZE*x)) >> Byte.SIZE*x); 
 		return b;
 	}
 
@@ -101,9 +100,9 @@ public class SuperWriter
 	 */
 	public static byte[] shortToBytes(short s, boolean endianMode)
 	{
-		byte[] b = new byte[Common.SIZEOF_SHORT];
-		for (int x = endianMode ? 0 : Common.SIZEOF_SHORT-1; endianMode ? (x < Common.SIZEOF_SHORT) : (x >= 0); x += endianMode ? 1 : -1)
-			b[endianMode ? x : Common.SIZEOF_SHORT-1 - x] = (byte)((s & (0xFF << Byte.SIZE*x)) >> Byte.SIZE*x); 
+		byte[] b = new byte[BufferUtils.SIZEOF_SHORT];
+		for (int x = endianMode ? 0 : BufferUtils.SIZEOF_SHORT-1; endianMode ? (x < BufferUtils.SIZEOF_SHORT) : (x >= 0); x += endianMode ? 1 : -1)
+			b[endianMode ? x : BufferUtils.SIZEOF_SHORT-1 - x] = (byte)((s & (0xFF << Byte.SIZE*x)) >> Byte.SIZE*x); 
 		return b;
 	}
 

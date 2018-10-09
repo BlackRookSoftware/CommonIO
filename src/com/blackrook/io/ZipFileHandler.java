@@ -16,10 +16,12 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.zip.*;
 
-import com.blackrook.commons.Common;
 import com.blackrook.commons.hash.CaseInsensitiveHashMap;
 import com.blackrook.commons.hash.HashMap;
 import com.blackrook.commons.list.List;
+import com.blackrook.commons.util.FileUtils;
+import com.blackrook.commons.util.IOUtils;
+import com.blackrook.commons.util.OSUtils;
 
 
 /**
@@ -34,7 +36,7 @@ import com.blackrook.commons.list.List;
  */
 public class ZipFileHandler implements AutoCloseable
 {
-	private static final File WORK_DIR = new File(Common.WORK_DIR);
+	private static final File WORK_DIR = new File(OSUtils.getWorkingDirectoryPath());
 	
 	/** FileFilter that accepts all files. */
 	public static final EntryFilter ALL_FILES = new EntryFilter()
@@ -71,7 +73,7 @@ public class ZipFileHandler implements AutoCloseable
 		
 		tempDir = temporaryDirectory;
 		
-		if (Common.isWindows())
+		if (OSUtils.isWindows())
 			unzipTable = new CaseInsensitiveHashMap<File>(10,10);
 		else
 			unzipTable = new HashMap<String,File>(10,10);
@@ -283,13 +285,13 @@ public class ZipFileHandler implements AutoCloseable
 		else
 			outFile = new File(targetDirectory.getPath()+File.separatorChar+targetName);
 		
-		if (!Common.createPathForFile(outFile))
+		if (!FileUtils.createPathForFile(outFile))
 			return null;
 		
 		InputStream inStream = zf.getInputStream(ze);
 		OutputStream outStream = new FileOutputStream(outFile);
 
-		Common.relay(inStream, outStream);
+		IOUtils.relay(inStream, outStream);
 		
 		inStream.close();
 		outStream.close();

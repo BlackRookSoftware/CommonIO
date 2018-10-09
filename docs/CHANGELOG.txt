@@ -1,5 +1,11 @@
 Common I/O (C) Black Rook Software, All rights reserved.
 
+Changed in 2.6.0
+================
+
+- Changed: Fixed Black Rook Commons Common class deprecation (Commons v2.32.0).
+
+
 Changed in 2.5.2
 ================
 
