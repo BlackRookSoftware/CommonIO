@@ -1,12 +1,12 @@
 # Black Rook Commons I/O
 
-Copyright (c) 2009-2017 Black Rook Software. All rights reserved.  
+Copyright (c) 2009-2019 Black Rook Software. All rights reserved.  
 [http://blackrooksoftware.com/projects.htm?name=commonio](http://blackrooksoftware.com/projects.htm?name=commonio)  
 [https://github.com/BlackRookSoftware/CommonIO](https://github.com/BlackRookSoftware/CommonIO)
 
 ### Required Libraries
 
-Black Rook Commons 2.8.0+  
+Black Rook Commons 2.32.0+  
 [https://github.com/BlackRookSoftware/Common](https://github.com/BlackRookSoftware/Common)
 
 ### Introduction
